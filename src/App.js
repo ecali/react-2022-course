@@ -1,23 +1,17 @@
 import "./App.css";
 
 function App() {
+
+  const age = 15;
+  const isGreen = true;
+
   return (
     <div className="App">
-      <Job salary={9000} position="Senior SDE" company="Amazon" />
-      <Job salary={12000} position="Senior SDE" company="Google" />
-      <Job salary={10000} position="Project Manager" company="Netflix" />
+      {age >= 18 ? <h1> Over Age </h1>: <h1>Under Age</h1>}
+      <h1 style={{color: isGreen ? 'green' : 'red'}}> Text has a color </h1>
+      {isGreen && <button> THIS IS A BUTTON </button>}
     </div>
   );
 }
-
-const Job = (props) => {
-  return (
-    <div>
-      <h1>{props.position}</h1>
-      <h2>{props.company}</h2>
-      <h2>{props.salary}</h2>
-    </div>
-  );
-};
 
 export default App;
