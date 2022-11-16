@@ -2,12 +2,12 @@ import { useState } from "react";
 import "./App.css";
 
 function App() {
-  const [showText, setShowText] = useState(true);
+  const [textColor, setTextColor] = useState('black');
 
   return (
     <div className="App">
-      <button onClick={() => setShowText(!showText)}>Show/Hide</button>
-      {showText && <h1>Hi MY NAME IS PEDRO</h1>}
+      <button onClick={() => setTextColor( textColor === 'red' ? 'black' : 'red')}>Show/Hide</button>
+      <h1 style={{color: textColor}}>HI MY NAME IS PEDRO</h1>
     </div>
   );
 }
