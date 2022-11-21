@@ -1,21 +1,16 @@
-import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import "./App.css";
-import { Cat } from "./components/Cat";
+import { useCounter } from "./useCounter";
 
 function App() {
-  const client = new QueryClient({
-    defaultOptions: {
-      queries: {
-        refetchOnWindowFocus: false,
-      },
-    },
-  });
+  const { counter, increment, decrement, reset } = useCounter();
+
   return (
-    <QueryClientProvider client={client}>
-      <div className="App">
-        <Cat />
-      </div>
-    </QueryClientProvider>
+    <div className="App">
+      <h2>{counter}</h2>
+      <button onClick={increment}>+1</button>
+      <button onClick={decrement}>-1</button>
+      <button onClick={reset}>Reset</button>
+    </div>
   );
 }
 
